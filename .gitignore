@@ -4,3 +4,4 @@ __pycache__/
 test_lib/
 .coverage
 *.egg-info/
+.vscode/
