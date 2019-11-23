@@ -1,3 +1,6 @@
 #!/usr/bin/env bash
 
-flake8 --config=dev/.flake8
+set -o pipefail
+set -e
+
+flake8 --config dev/.flake8 --verbose --benchmark
