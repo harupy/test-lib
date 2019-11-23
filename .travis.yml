@@ -25,7 +25,6 @@ install:
 
   # install test dependencies
   - conda install -c conda-forge --yes --file requirements-dev.txt
-  - pip install -e .
   - conda list
 
 before_script:
