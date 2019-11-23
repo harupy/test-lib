@@ -1,26 +1,22 @@
 language: python
 
-cache:
-  directories:
-    - $HOME/.cache/spark-versions
-
 matrix:
   include:
     - python: 3.7
       dist: xenial
       sudo: true
 
-# See this page: http://conda.pydata.org/docs/travis.html
+# see this page: http://conda.pydata.org/docs/travis.html
 install:
   - sudo apt-get update
 
   # install conda
-  - curl -s https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh > miniconda.sh;
+  - curl -s https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh > miniconda.sh
   - bash miniconda.sh -b -p $HOME/miniconda
   - . $HOME/miniconda/etc/profile.d/conda.sh
   - hash -r
 
-  # conda setup
+  # setup conda
   - conda config --set always_yes yes --set changeps1 no
   - conda update -q conda
   - conda info -a
@@ -29,7 +25,7 @@ install:
 
   # install test dependencies
   - conda install -c conda-forge --yes --file requirements-dev.txt
-  - conda list;
+  - conda list
 
 before_script:
   - ./dev/lint.sh
